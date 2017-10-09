@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" 
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+      xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx 
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        ">
+        
+         <!-- bean definitions here -->
+   <!--   配置spring的配置文件 -->
+   <context:component-scan base-package="ibocom.sulei.dao"/>
+   <context:component-scan base-package="ibocom.sulei.service"/>
+   
+   <!-- 配置springmvc所需要的映射器等的配置 -->
+   <mvc:annotation-driven/>
+   <!-- 静态文件和需要的servlet拦截所需要的 -->
+   
+  <!-- 配置 ORM 框架  (mybatis hibernite) -->
+  <!-- 配置数据源 -->    
+<bean id="datasoce" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+<property name="user" value="root"></property>
+<property name="password" value="123456"></property>
+<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+<property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/blog"></property>
+</bean>
+
+<!-- 配置sessionfactory -->
+ <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" > 
+<property name="dataSource" ref="datasoce" /> 
+<!-- 扫描 mabatis 的配置文件 -->
+<property name="configLocation" value="classpath:ibocom/sulei/ssmfile/mybatis.xml"></property>
+</bean>
+
+ <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> 
+<property value="sqlSessionFactory" name="sqlSessionFactoryBeanName"/>
+ <property value="ibocom.sulei.dao" name="basePackage"/>
+</bean>
+
+</beans>

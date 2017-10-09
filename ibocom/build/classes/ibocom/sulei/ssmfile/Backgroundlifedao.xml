@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ibocom.sulei.dao.Backgroundlifedao">
+
+<!-- 查询回忆往昔的封装 -->
+
+<!-- 查list元素 	public List<articles> selectlist();-->
+<select id="selectlist"  resultType="ibocom.sulei.bean.articles">
+    select * from articles  where classid=#{classid} order by id desc limit #{index},#{size}
+</select>
+
+<!-- 得到总的记录数public int selectsize(); -->
+<select id="selectsize" resultType="Integer">
+    select count(*) from articles where classid=6
+</select>
+<!-- 查询回忆往昔的封装 -->
+
+
+<!-- ////为回忆往昔增加文章方法
+	public void insertlife(articles articles); -->
+	
+	<insert id="insertlife" parameterType="ibocom.sulei.bean.articles">
+	    insert into articles(articlesimg,articleshead,articlesbody,articlestime,classid,articlesuser) 
+	    values(#{articlesimg},#{articleshead},#{articlesbody},#{articlestime},#{classid},#{articlesuser})
+	</insert>
+	
+	<!-- 	public void delelife(int id); 根据文章id 删除 文章 -->
+	<delete id="delelife" parameterType="Integer">
+	    delete from articles where id=#{id}
+	</delete>
+	
+	<!-- public articles selelife(int id); 根据id 查找life 文章信息 -->
+	<select id="selelife" parameterType="Integer" resultType="ibocom.sulei.bean.articles">
+	    select * from articles where id=#{id};
+	</select>
+</mapper>
