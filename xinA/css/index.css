@@ -1,0 +1,67 @@
+
+::selection {
+    color:#fff;
+    background-color: #8ca84d ;
+}
+
+::-moz-selection {
+    color:#fff;
+    background-color: #8ca84d ;
+}
+
+::-webkit-selection {
+    color:#fff;
+    background-color: #8ca84d;
+}
+
+li{
+    list-style: none;
+}
+p {
+    margin: 0 0 2px 0;
+}
+.wrapper{
+    margin-top: 60px;
+}
+.active{
+    margin-top:8px;
+}
+.change{
+    font-size: 10px;
+}
+dd,div,dl,dt,form,h1,h2,h3,h4,h5,img,input,label,p,span,textarea,ul,figure{margin:0;padding:0;outline:0;}
+.clear{clear:both;}
+
+/*Sidebar*/
+.widget{clear:both;position:relative;margin-bottom:15px;border-radius:4px;border:1px solid #eaeaea;overflow:hidden;}
+.widgets{border:0 !important;}
+.widget h3{height:40px;line-height:40px;border-bottom:1px solid #ddd;}
+.widget h3 i{float:left;width:40px;height:40px;font-size:18px;color:#b44d0c;line-height:40px;text-align:center;margin:0 10px 0 0;padding:1px 0;border-right:1px solid #ddd;border-radius:2px 0 0 0;}
+
+
+#divLinkage ul,#divFavorites ul,#divStatistics ul{padding:10px;}
+#divLinkage ul li,#divFavorites ul li,#divStatistics ul li{float:left;width:50%;height:36px;line-height:36px;overflow:hidden;padding:0 2%;}
+
+/*表单搜索*/
+form.form-inline.text-center.surplus {
+    padding: 7%;
+}
+/*发表文章*/
+#play li{
+    cursor: pointer;
+}
+#play li p + p{
+    margin-top: 10px;
+}
+#play li{
+    margin-top: 10px;
+}
+/*最后*/
+.col-md-12.text-center.text-success.extend {
+    padding: 23px 0;
+}
+
+
+
+
+
